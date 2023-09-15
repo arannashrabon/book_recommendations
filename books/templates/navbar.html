@@ -1,0 +1,56 @@
+<div class="bg-base-100">
+    <div class="mx-auto sm:w-3/4">
+        <div class="navbar">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <label tabindex="0" class="hidden btn btn-ghost">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16"
+                            />
+                        </svg>
+                    </label>
+                    <ul
+                        tabindex="0"
+                        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 space-y-4"
+                    >
+                        {% if is_authenticated %}
+                        <a>{% include 'profileDropdown.html' %}</a>
+                        {% else %}
+                        <a class="btn btn-info" href="/login">Login</a>
+                        <a class="btn btn-success" href="/signup">Signup</a>
+                        {% endif %}
+                    </ul>
+                </div>
+                <a href="/" class="text-xl normal-case btn btn-ghost" style="font-family: 'Architects Daughter', sans-serif;">
+                    <img src="https://www.pngall.com/wp-content/uploads/10/Knowledge-PNG-Pic.png" alt="Store Logo" style="width: 24px; height: 24px; margin-right: 8px;"> Store of Knowledge
+                </a>
+                
+            </div>
+            <div class="hidden gap-2 navbar-end lg:flex" >
+                {% if is_authenticated %}
+                <a href="logout" class="btn btn-info" href="/login" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); ">Log Off</a>
+                {% include 'profileDropdown.html' %} {% else %}
+                <a class="btn btn-info" href="/login" >Login</a>
+                <a class="btn btn-success" href="/signup">Signup</a>
+                {% endif %}
+            </div>
+            <div class="flex gap-2 navbar-end sm:hidden">
+                {% if is_authenticated %} {% include 'profileDropdown.html' %}
+                {% else %}
+                <a class="btn btn-info" href="/login">Login</a>
+                <a class="btn btn-success" href="/signup">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

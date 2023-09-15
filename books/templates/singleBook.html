@@ -1,0 +1,36 @@
+<div
+    class="w-full h-full duration-1000 hover:shadow-xl card bg-base-100 group/book hover:scale-105"
+    
+>
+    <figure class="" >
+        <img
+            src="{{book.volumeInfo.imageLinks.thumbnail}}"
+            alt="{{book.volumeInfo.title}}"
+            class="duration-700 group-hover/book:scale-110"
+        />
+    </figure>
+    <div class="card-body" >
+        <h2 class="card-title drop-shadow-md text-slate-800">
+            {{book.volumeInfo.title}}
+        </h2>
+        <p class="line-clamp-3 text-slate-500">
+            {{book.volumeInfo.description}}
+        </p>
+        <div class="justify-end card-actions">
+            <button
+                onclick="add('{% url 'bookmark' book.id%}')"
+                class="btn btn-sm btn-primary"
+            >
+                bookmark
+            </button>
+            <a href="{% url 'details' book.id%}" class="btn btn-sm btn-accent">
+                Details
+            </a>
+            <script>
+                function add(url) {
+                    fetch(url);
+                }
+            </script>
+        </div>
+    </div>
+</div>

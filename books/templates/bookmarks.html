@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block content %}
+<div class="">
+    <div class="">
+        <div class="mx-auto text-black">
+            <div class="flex flex-col items-center justify-center my-8">
+                <h3 class="mb-4 text-3xl font-semibold">{{title}}</h3>
+            </div>
+            <div class="container mx-auto">
+                <div
+                    class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4"
+                >
+                    {% for book in books %}
+                    <div>{% include 'singleBookmark.html' %}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content%}

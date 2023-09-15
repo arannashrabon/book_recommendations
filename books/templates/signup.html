@@ -1,0 +1,73 @@
+{% extends 'base.html' %} {% block content %}
+<div
+    class="hero min-h-[93vh]"
+    style="
+        background-image: url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);
+    "
+>
+    <div class="hero-overlay bg-opacity-80"></div>
+    <div class="hero-content text-center text-neutral-content">
+        <div class="max-w-md">
+            <form
+                action="/signup/"
+                method="POST"
+                class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"
+            >
+                {% csrf_token %}
+                <div class="p-4">
+                    <h1
+                        class="text-3xl font-bold text-center card-title text-slate-500 justify-center"
+                    >
+                        Register Now
+                    </h1>
+                </div>
+                <div class="divider"></div>
+                <div class="card-body">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Name</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Name"
+                            name="name"
+                            class="input input-bordered text-slate-700"
+                        />
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Email</span>
+                        </label>
+                        <input
+                            type="email"
+                            placeholder="email"
+                            name="email"
+                            class="input input-bordered text-slate-700"
+                        />
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Password</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="password"
+                            name="password"
+                            class="input input-bordered text-slate-700"
+                        />
+                        <label class="label">
+                            <a href="#" class="label-text-alt link link-hover"
+                                >Forgot password?</a
+                            >
+                        </label>
+                    </div>
+                    <div class="form-control mt-6">
+                        <button class="btn btn-primary">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+<div class="bg-white dropdown dropdown-end">
+    <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+        <div class="avatar placeholder">
+            <div class="w-10 p-2 rounded-full bg-sky-300 text-slate-700">
+                <span class="text-2xl">{{name}}</span>
+            </div>
+        </div>
+    </label>
+    <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+    >
+        <li><a href="{% url 'bookmark_profile'%}">Bookmarks</a></li>
+        <li><a href="{% url 'review_profile'%}">Reviews</a></li>
+        <li><a href="{% url 'reading_history_profile'%}">Reading List</a></li>
+        <li>
+            <a href="logout" class="felx sm:btn btn-info" href="/login"
+                >Logout</a
+            >
+        </li>
+    </ul>
+</div>

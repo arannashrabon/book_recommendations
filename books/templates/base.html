@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="corporate">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Store of Knowledge</title>
+        <link
+            rel="shortcut icon"
+            href="https://www.pngall.com/wp-content/uploads/10/Knowledge-PNG-Pic.png"
+            type="image/x-icon"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body class="min-h-screen" style="background-color: #FEF8DD;">
+        {% include 'navbar.html' %}
+        <div class="mx-auto sm:w-3/4">
+            {% block content %}{% endblock content %}
+        </div>
+    </body>
+</html>

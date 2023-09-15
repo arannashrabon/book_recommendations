@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% block content %}
+<div class="">
+    <div class="">
+        <div class="mx-auto text-black">
+            <div class="flex flex-col items-center justify-center my-8">
+                <h3 class="mb-4 text-3xl font-semibold">
+                    Store of Knowledge
+                </h3>
+                <div class="justify-center form-control" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+                    <form method="POST" action="/" class="input-group">
+                        {% csrf_token %}
+                        <div class="join">
+                            <select
+                                class="select select-bordered join-item"
+                                name="filter"
+                            >
+                                <option disabled selected>Filter</option>
+                                <option value="keywords">Keywords</option>
+                                <option value="title">Title</option>
+                                <option value="author">Author</option>
+                                <option value="genre">Genre</option>
+                            </select>
+                            <script>
+                                document.querySelector(
+                                    `[value="{{ filter }}"]`
+                                ).selected = true;
+                            </script>
+                            <div>
+                                <div>
+                                    <input
+                                        class="input input-bordered join-item"
+                                        type="text"
+                                        name="query"
+                                        placeholder="Search books by title, author, genre, or keywords"
+                                    />
+                                </div>
+                            </div>
+                            <div class="indicator">
+                                <button class="btn join-item btn-info">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="container mx-auto">
+                {% if query and filter %}
+                <div class="my-8">
+                    Search Result of {{ query }} for {{ filter }} category
+                </div>
+                {% endif %}
+
+                <div
+                    class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4"
+                >
+                    {% for book in books %}
+                    <div>{% include 'singleBook.html' %}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divider">Top Picks</div>
+
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {% for book in recommended_books %}
+            <div>{% include 'singleBookmark.html' %}</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content%}
